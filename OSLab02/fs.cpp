@@ -113,3 +113,5 @@ FS::chmod(std::string accessrights, std::string filepath)
     std::cout << "FS::chmod(" << accessrights << "," << filepath << ")\n";
     return 0;
 }
+
+// Hej Hej!
