@@ -22,6 +22,9 @@ FS::format()
     }
     fat[0] = ROOT_BLOCK;
     fat[1] = FAT_BLOCK;
+
+    disk.write(FAT_BLOCK, (uint8_t*)fat);
+    disk.write(ROOT_BLOCK, (uint8_t*)fat);
     return 0;
 }
 
@@ -31,6 +34,7 @@ int
 FS::create(std::string filepath)
 {
     std::cout << "FS::create(" << filepath << ")\n";
+
     return 0;
 }
 
