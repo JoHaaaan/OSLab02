@@ -20,11 +20,14 @@ FS::format()
     {
         fat[i] = FAT_FREE;
     }
-    fat[0] = ROOT_BLOCK;
-    fat[1] = FAT_BLOCK;
+    fat[0] = FAT_EOF;
+    fat[1] = FAT_EOF;
 
     disk.write(FAT_BLOCK, (uint8_t*)fat);
-    disk.write(ROOT_BLOCK, (uint8_t*)fat);
+
+    uint8_t empty_block[BLOCK_SIZE] = {0};
+
+    disk.write(ROOT_BLOCK, empty_block);
     return 0;
 }
 
@@ -51,6 +54,7 @@ int
 FS::ls()
 {
     std::cout << "FS::ls()\n";
+
     return 0;
 }
 
