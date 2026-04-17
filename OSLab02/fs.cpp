@@ -16,6 +16,12 @@ int
 FS::format()
 {
     std::cout << "FS::format()\n";
+    for (int i = 0; i < BLOCK_SIZE/2; i++)
+    {
+        fat[i] = FAT_FREE;
+    }
+    fat[0] = ROOT_BLOCK;
+    fat[1] = FAT_BLOCK;
     return 0;
 }
 
@@ -113,6 +119,3 @@ FS::chmod(std::string accessrights, std::string filepath)
     std::cout << "FS::chmod(" << accessrights << "," << filepath << ")\n";
     return 0;
 }
-
-// Hej Hej!
-// Testing 
